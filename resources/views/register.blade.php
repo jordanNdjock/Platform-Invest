@@ -6,7 +6,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <title>
-    {{ __("Platform") }}/{{ __("S'inscrire") }}
+    Link Platform/{{ __("S'inscrire") }}
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -95,7 +95,7 @@
             <div class="card-body">
                 @if (Session::has('error'))
                         <div class="alert alert-danger alert-dismissible fade show text-white fw-bold" role="alert">
-                            {{ Session::get('error') }}
+                            {{ __(Session::get('error')) }}
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="fas fa-times-circle"></i></button>
                         </div>
                 @endif
@@ -103,16 +103,16 @@
               <form role="form" action="{{ route('register') }}" method="POST">
                 @csrf
                 <div class="mb-3">
-                  <input type="text" class="form-control" name="nom" placeholder="{{ __("Nom") }}" aria-label="{{ __("Nom") }}" required>
+                  <input type="text" class="form-control" name="nom" placeholder="{{ __("Nom") }}" aria-label="{{ __("Nom") }}" value="{{old('nom')}}" required>
                 </div>
                 <div class="mb-3">
-                  <input type="email" class="form-control" name="email" placeholder="Email" aria-label="Email" required>
+                  <input type="email" class="form-control" name="email" placeholder="Email" aria-label="Email" value="{{old('email')}}" required>
                 </div>
                 <div class="mb-3">
-                    <input type="text" class="form-control" name="num_cni" placeholder="{{ __("N° CNI") }}" aria-label="{{ __("N° CNI") }}" required>
+                    <input type="text" class="form-control" name="num_cni" placeholder="{{ __("N° CNI") }}" aria-label="{{ __("N° CNI") }}" value="{{old('num_cni')}}" required>
                 </div>
                 <div class="mb-3">
-                  <input type="password" class="form-control" name="mot_de_passe"  placeholder="{{ __("Mot de passe") }}" aria-label="{{ __("Mot de passe") }}" required>
+                  <input type="password" class="form-control" name="mot_de_passe"  placeholder="{{ __("Mot de passe") }}" aria-label="{{ __("Mot de passe") }}" value="{{old('mot_de_passe')}}" required>
                 </div>
                 <div class="form-check form-check-info text-start">
                   <input class="form-check-input" type="checkbox" id="flexCheckDefault" required>
