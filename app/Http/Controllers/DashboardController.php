@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class DashboardController extends Controller
 {
@@ -11,54 +14,39 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        return view('pages.dashboard');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+    public function indexProfil(){
+        $user = User::findOrFail(Auth::user()->id);
+        return view('pages.profil', ['user' => $user]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
+    public function indexMining(){
+        $user = User::findOrFail(Auth::user()->id);
+        return view('pages.mining', ['user' => $user]);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
+    public function indexAction(){
+        $user = User::findOrFail(Auth::user()->id);
+        return view('pages.makeaction', ['user' => $user]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+    public function postProfil(Request $request){
+        $user = User::where('id',Auth::user()->id)->get()->first();
+        if(empty($request->password)){
+            $password = Auth::user()->password;
+        }else{
+            $password = Hash::make($request->password);
+        }
+        if(strlen($request->cni) != 17){
+            return redirect()->back()->With('error','Veuillez modifier votre numero de CNI avec un numero correct.');
+        }
+        $user->update([
+            'name' => $request->nom,
+            'cni' => $request->cni,
+            'password' =>$password,
+        ]);
+        return redirect()->back()->With('success','Informations modifiée avec succès !');
     }
 }

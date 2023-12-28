@@ -79,8 +79,8 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-5 text-center mx-auto">
-            <h1 class="text-white mb-2 mt-5">{{ __("Bienvenue") }} !</h1>
-            <p class="text-lead text-white"> Grace à notre Platforme, vous pourrez créer un compte avant de vous</p>
+            <h1 class="text-white mb-2 mt-5">{{ __("Bienvenue sur") }} Link Platform !</h1>
+            <p class="text-lead text-white"> {{ __("Optimisez vos gains financiers en toute simplicité : créez votre compte sur notre plateforme d'investissement en ligne, la clé de votre réussite !") }} </p>
           </div>
         </div>
       </div>

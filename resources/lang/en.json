@@ -7,7 +7,8 @@
     "Langue": "Language",
     "Français": "French",
     "Anglais": "English",
-    "Bienvenue": "Welcome",
+    "Bienvenue sur": "Welcome on",
+    "Optimisez vos gains financiers en toute simplicité : créez votre compte sur notre plateforme d'investissement en ligne, la clé de votre réussite !": "Maximize your financial gains effortlessly: create your account on our online investment platform, the key to your success !",
     "Nom": "Name",
     "Mot de passe": "Password",
     "N° CNI": "NIC",
@@ -24,6 +25,13 @@
     "Tableau de Bord": "Dashboard",
     "Se déconnecter": "Sign out",
     "Profil" : "Profile",
+    "Faire une action" : "Make an action",
+    "Miner": "Mining",
+    "Utilisateur": "User",
+    "Paramètres": "Settings",
+    "Modification de Profil": "Edit Profil",
+    "Information de l'utilisateur": "User information",
+    "Modifier": "Modify",
 
     "Le mot de passe ne doit pas avoir moins de 6 caractères": "The password must not be less than 6 characters",
     "Le numéro de CNI doit avoir 17 caractères" : "The NIC number must have 17 characters",
@@ -31,6 +39,8 @@
     "Un compte avec cet email existe déjà !": "An account with this email already exists !",
     "Connexion réussie ! content de vous revoir " : "Successful connection ! Welcome back ",
     "Cet utilisateur n'existe pas.": "This user does not exist.",
-    "Le mot de passe est incorrect." : "The password is incorrect."
+    "Le mot de passe est incorrect." : "The password is incorrect.",
+    "Informations modifiée avec succès !": "Information successfully modified !",
+    "Veuillez modifier votre numero de CNI avec un numero correct.": "Please change your NIC number with a correct number."
 
 }
