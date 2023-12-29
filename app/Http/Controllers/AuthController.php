@@ -32,6 +32,7 @@ class AuthController extends Controller
         try{
             $user->password = Hash::make($request->mot_de_passe);
             $user->save();
+            Auth::login($user);
             return redirect('/dashboard')->with('success','Compte crée avec succès ! Bienvenue ');
         }catch(QueryException $e){
             if ($e->errorInfo[1] == 1062) {

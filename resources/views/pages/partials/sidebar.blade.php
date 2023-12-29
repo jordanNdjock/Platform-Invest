@@ -1,4 +1,21 @@
-<div class="card shadow-lg">
+<style>
+  #cog{
+    animation: rotation 2s infinite;
+  }
+  @keyframes rotation{
+    50%{
+      transform: rotate(180deg);
+    }
+    100%{
+      transform: rotate(360deg);
+    }
+  }
+</style>
+<div class="fixed-plugin">
+  <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
+    <i class="fa fa-cog py-2" id="cog"></i>
+  </a>
+ <div class="card shadow-lg">
     <div class="card-header pb-0 pt-3 ">
       <div class="float-start">
         <h5 class="mt-3 mb-0">{{ __("Configurateur Link") }}</h5>
@@ -53,3 +70,4 @@
       </div>
     </div>
   </div>
+</div>

@@ -183,18 +183,18 @@
           </div>
         </div>
         {{-- Footer --}}
-        <hr>
+          <hr>
           @include('pages.partials.footer')
         {{-- endFooter --}}
       </div>
     </div>
   </div>
-  <div class="fixed-plugin">
-    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
-      <i class="fa fa-cog py-2"> </i>
-    </a>
+    {{-- Sidebar --}}
+
     @include('pages.partials.sidebar')
-    </div>
+
+    {{-- End Sidebar --}}
+   
   </div>
   <!--   Core JS Files   -->
   <script src="../assets/js/core/popper.min.js"></script>

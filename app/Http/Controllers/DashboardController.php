@@ -14,7 +14,8 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('pages.dashboard');
+        $user = User::findOrFail(Auth::user()->id);
+        return view('pages.dashboard', ['user' => $user]);
     }
 
     public function indexProfil(){
@@ -47,6 +48,6 @@ class DashboardController extends Controller
             'cni' => $request->cni,
             'password' =>$password,
         ]);
-        return redirect()->back()->With('success','Informations modifiée avec succès !');
+        return redirect()->back()->With('success','Informations modifiées avec succès !');
     }
 }

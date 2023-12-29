@@ -46,9 +46,13 @@
     "Ci-dessous, l'ensemble de vos actifs sur Link Platform": "Below, all of your assets on Link Platform",
     "depôt": "DEPOSIT",
     "RETRAIT": "WITHDRAWAL",
-    "Vos informations de facturation": "Biling information",
+    "Vos informations de facturation": "Biling informations",
     "Historique de vos transactions": "History of your transactions",
-    "": "",
+    "Actifs du jour": "Today's assets",
+    "Somme minée du jour": "Amount mined of the day",
+    "Depôt / Retrait": "Deposit / Withdrawal",
+    "Statut": "Status",
+
 
     "Le mot de passe ne doit pas avoir moins de 6 caractères": "The password must not be less than 6 characters",
     "Le numéro de CNI doit avoir 17 caractères" : "The NIC number must have 17 characters",
@@ -57,7 +61,7 @@
     "Connexion réussie ! content de vous revoir " : "Successful connection ! Welcome back ",
     "Cet utilisateur n'existe pas.": "This user does not exist.",
     "Le mot de passe est incorrect." : "The password is incorrect.",
-    "Informations modifiée avec succès !": "Information successfully modified !",
+    "Informations modifiées avec succès !": "Information successfully modified !",
     "Veuillez modifier votre numero de CNI avec un numero correct.": "Please change your NIC number with a correct number."
 
 }

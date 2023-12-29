@@ -11,15 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('mining_activity', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('cni');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->string('statut')->default('VIP0')->nullable();
-            $table->float('solde')->default(0.0)->nullable();
-            $table->rememberToken();
+            $table->string('montant_minee');
+            $table->foreignId('users_id')->constrained();
+            $table->foreignId('mining_bot_id')->constrained(
+                table: 'mining_bot', indexName: 'id'
+            );
             $table->timestamps();
         });
     }
@@ -29,7 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
-
+        Schema::dropIfExists('mining_activity');
     }
 };

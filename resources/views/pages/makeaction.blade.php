@@ -95,7 +95,7 @@
                       <h6 class="text-center mb-0">{{ __("Actifs") }}</h6>
                       <span class="text-xs">{{ __("Ci-dessous, l'ensemble de vos actifs sur Link Platform") }}</span>
                       <hr class="horizontal dark my-3">
-                      <h5 class="mb-0">0.0 XAF</h5>
+                      <h5 class="mb-0">{{ ($user->solde == 0) ? '0.0' : $user->solde}} XAF</h5>
                     </div>
                   </div>
                 </div>
@@ -204,12 +204,13 @@
       {{-- End Footer --}}
     </div>
   </main>
-  <div class="fixed-plugin">
-    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
-      <i class="fa fa-cog py-2"> </i>
-    </a>
+  
+    {{-- Sidebar --}}
+
     @include('pages.partials.sidebar')
-  </div>
+
+    {{-- End Sidebar --}}
+
   <!--   Core JS Files   -->
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>

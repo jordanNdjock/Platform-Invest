@@ -96,14 +96,14 @@
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Today's Money</p>
-                    <h5 class="font-weight-bolder">
-                      $53,000
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">{{__("Actifs du jour")}}</p>
+                    <h5 class="font-weight-bolder mb-4 mt-2">
+                      {{ ($user->solde == 0) ? '0.0' : $user->solde}} XAF
                     </h5>
-                    <p class="mb-0">
+                    {{-- <p class="mb-0">
                       <span class="text-success text-sm font-weight-bolder">+55%</span>
                       since yesterday
-                    </p>
+                    </p> --}}
                   </div>
                 </div>
                 <div class="col-4 text-end">
@@ -121,19 +121,19 @@
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Today's Users</p>
-                    <h5 class="font-weight-bolder">
-                      2,300
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">{{__("Somme minée du jour")}}</p>
+                    <h5 class="font-weight-bolder mb-4 mt-2">
+                      0.0 XAF
                     </h5>
-                    <p class="mb-0">
+                    {{-- <p class="mb-0">
                       <span class="text-success text-sm font-weight-bolder">+3%</span>
                       since last week
-                    </p>
+                    </p> --}}
                   </div>
                 </div>
                 <div class="col-4 text-end">
                   <div class="icon icon-shape bg-gradient-danger shadow-danger text-center rounded-circle">
-                    <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i>
+                    <i class="fas fa-hammer text-lg opacity-10" aria-hidden="true"></i>
                   </div>
                 </div>
               </div>
@@ -146,19 +146,19 @@
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold">New Clients</p>
-                    <h5 class="font-weight-bolder">
-                      +3,462
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">{{__("Statut")}}</p>
+                    <h5 class="font-weight-bolder mb-4 mt-2">
+                      {{$user->statut}}
                     </h5>
-                    <p class="mb-0">
+                    {{-- <p class="mb-0">
                       <span class="text-danger text-sm font-weight-bolder">-2%</span>
                       since last quarter
-                    </p>
+                    </p> --}}
                   </div>
                 </div>
                 <div class="col-4 text-end">
                   <div class="icon icon-shape bg-gradient-success shadow-success text-center rounded-circle">
-                    <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
+                    <i class="fas fa-user-tag text-lg opacity-10" aria-hidden="true"></i>
                   </div>
                 </div>
               </div>
@@ -171,18 +171,18 @@
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Sales</p>
-                    <h5 class="font-weight-bolder">
-                      $103,430
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">{{__("Depôt / Retrait")}}</p>
+                    <h5 class="font-weight-bolder mb-4 mt-2">
+                      0.0 XAF / 0.0 XAF
                     </h5>
-                    <p class="mb-0">
+                    {{-- <p class="mb-0">
                       <span class="text-success text-sm font-weight-bolder">+5%</span> than last month
-                    </p>
+                    </p> --}}
                   </div>
                 </div>
                 <div class="col-4 text-end">
                   <div class="icon icon-shape bg-gradient-warning shadow-warning text-center rounded-circle">
-                    <i class="ni ni-cart text-lg opacity-10" aria-hidden="true"></i>
+                    <i class="fas fa-dollar-sign text-lg opacity-10" aria-hidden="true"></i>
                   </div>
                 </div>
               </div>
@@ -462,15 +462,14 @@
           </div>
         </div>
       </div>
-     @include('pages.partials.footer')
+     {{-- Sidebar --}}
+
+        @include('pages.partials.footer')
+
+     {{-- End Sidebar --}}
     </div>
   </main>
-  <div class="fixed-plugin">
-    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
-      <i class="fa fa-cog py-2"> </i>
-    </a>
     @include('pages.partials.sidebar')
-  </div>
   <!--   Core JS Files   -->
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>

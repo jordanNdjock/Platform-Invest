@@ -74,13 +74,13 @@
              </div> 
            </li>
 
-              <li class="nav-item px-2 d-flex align-items-center mt-1">
+              <li class="nav-item px-2 d-flex align-items-center mt-2">
                   <form action="{{ route('logout') }}" method="post">
                       @csrf
                       @method('DELETE')
-                      <button type="submit" class="nav-link text-white p-0 ">
-                          <button class="btn btn-danger btn-xs mt-2"><span class="d-md-inline d-none"> {{ __("Se déconnecter") }}</span> <i class="fa fa-power-off cursor-pointer"></i></button>
-                      </button>
+                      <a class="nav-link text-white p-0">
+                          <button type="submit" class="btn btn-danger btn-xs mt-2"><span class="d-md-inline d-none"> {{ __("Se déconnecter") }}</span> <i class="fa fa-power-off cursor-pointer"></i></button>
+                      </a>
                   </form>
               </li>
               <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
