@@ -7,22 +7,19 @@
         <ul class="navbar-nav  justify-content-end">
           <li class="nav-item d-flex align-items-center">
             <span class="nav-link text-white font-weight-bold px-0">
-              <i class="fa fa-user me-sm-1"></i>
+              <i class="fa fa-user me-sm-1 d-sm-inline d-none"></i>
               <span class="d-sm-inline d-none">{{ Auth::user()->name }}</span>
             </span>
           </li>
-          <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
-            <a href="javascript:;" class="nav-link text-white p-0" id="iconNavbarSidenav">
-              <div class="sidenav-toggler-inner">
-                <i class="sidenav-toggler-line bg-white"></i>
-                <i class="sidenav-toggler-line bg-white"></i>
-                <i class="sidenav-toggler-line bg-white"></i>
-              </div>
-            </a>
-          </li>
-          <li class="nav-item px-3 d-flex align-items-center">
+          
+          <li class="nav-item px-3 d-sm-flex d-none align-items-center">
             <a href="javascript:;" class="nav-link text-white p-0">
               <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
+            </a>
+          </li>
+          <li class="nav-item px-3 d-flex d-md-none align-items-center">
+            <a href="{{route('dashboard')}}" class="nav-link text-white p-0">
+              <i class="fa fa-home fixed-plugin-button-nav cursor-pointer"></i>
             </a>
           </li>
           <li class="nav-item dropdown pe-2 d-flex align-items-center">
@@ -81,10 +78,19 @@
                   <form action="{{ route('logout') }}" method="post">
                       @csrf
                       @method('DELETE')
-                      <button type="submit" class="nav-link text-white p-0">
-                          <button class="btn btn-danger btn-xs mt-2"> {{ __("Se déconnecter") }} <i class="fa fa-power-off cursor-pointer"></i></button>
+                      <button type="submit" class="nav-link text-white p-0 ">
+                          <button class="btn btn-danger btn-xs mt-2"><span class="d-md-inline d-none"> {{ __("Se déconnecter") }}</span> <i class="fa fa-power-off cursor-pointer"></i></button>
                       </button>
                   </form>
+              </li>
+              <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+                <a href="javascript:;" class="nav-link text-white p-0" id="iconNavbarSidenav">
+                  <div class="sidenav-toggler-inner">
+                    <i class="sidenav-toggler-line bg-white"></i>
+                    <i class="sidenav-toggler-line bg-white"></i>
+                    <i class="sidenav-toggler-line bg-white"></i>
+                  </div>
+                </a>
               </li>
         </ul>
       </div>

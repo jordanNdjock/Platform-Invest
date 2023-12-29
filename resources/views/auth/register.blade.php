@@ -138,7 +138,7 @@
           <p class="mb-0 text-secondary">
             {{ __("Tout droits reservés") }} © <script>
               document.write(new Date().getFullYear())
-            </script> {{ __("Par") }} {{ __("Platform") }}.
+            </script> {{ __("Par") }} Link Platform.
           </p>
         </div>
       </div>
