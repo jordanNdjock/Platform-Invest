@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('mining__activities', function (Blueprint $table) {
             $table->id();
             $table->string('montant_minee');
+            $table->enum('bot_paye', ['1', '0'])->default('0')->nullable();
             $table->foreignId('users_id');
             $table->foreignId('mining_bots_id');
             $table->timestamps();

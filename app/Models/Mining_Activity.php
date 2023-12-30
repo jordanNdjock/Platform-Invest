@@ -13,7 +13,8 @@ class Mining_Activity extends Model
     protected $fillable = [
         'bot_mining_id',
         'user_id',
-        'Montant_miné'
+        'Montant_miné',
+        'Bot_payé'
     ];
 
 
