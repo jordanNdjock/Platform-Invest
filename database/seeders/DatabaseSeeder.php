@@ -14,9 +14,16 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        \App\Models\User::factory()->create([
+            'name' => 'Liam Jordan',
+            'email' => 'test@gmail.com',
+        ]);
+        for($i = 0;$i<6;$i++){
+            \App\Models\Mining_Bot::factory()->create([
+                'nom' => 'BOT_VIP'.$i,
+                'niveau_requis' => 'VIP'.$i
+            ]);
+        }
+        
     }
 }

@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('mining_activity', function (Blueprint $table) {
+        Schema::create('mining__activities', function (Blueprint $table) {
             $table->id();
             $table->string('montant_minee');
-            $table->foreignId('users_id')->constrained();
-            $table->foreignId('mining_bot_id')->constrained(
-                table: 'mining_bot', indexName: 'id'
-            );
+            $table->foreignId('users_id');
+            $table->foreignId('mining_bots_id');
             $table->timestamps();
         });
     }
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('mining_activity');
+        Schema::dropIfExists('mining__activities');
     }
 };

@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MiningBotController;
+use App\Http\Controllers\MiningActivityController;
 use App\Http\Controllers\LocalizationController;
 
 /*
@@ -30,8 +32,8 @@ Route::group(['middleware' => 'auth'], function(){
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/profil', [DashboardController::class, 'indexProfil'])->name('profil');
 Route::post('/profil', [DashboardController::class, 'postProfil'])->name('profil');
-Route::get('/action', [DashboardController::class, 'indexAction'])->name('action');
-Route::get('/mining', [DashboardController::class, 'indexMining'])->name('mining');
+Route::get('/action', [MiningActivityController::class, 'indexAction'])->name('action');
+Route::get('/mining', [MiningBotController::class, 'indexMining'])->name('mining');
 Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
