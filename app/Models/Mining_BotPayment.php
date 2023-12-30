@@ -4,18 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Mining_Activity extends Model
+class Mining_BotPayment extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'bot_mining_id',
-        'user_id',
-        'Montant_miné',
+        'bot_payé',
+        'montant_bot',
+        'users_id',
+        'mining_bots_id'
     ];
-
 
     public function user(): BelongsTo
     {

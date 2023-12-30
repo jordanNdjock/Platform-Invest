@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Mining_Activity;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -15,6 +16,7 @@ class DashboardController extends Controller
     public function index()
     {
         $user = User::findOrFail(Auth::user()->id);
+
         return view('pages.dashboard', ['user' => $user]);
     }
 

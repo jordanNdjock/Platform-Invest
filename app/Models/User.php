@@ -45,4 +45,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function botPayments()
+    {
+        return $this->hasMany(Mining_BotPayment::class, 'users_id', 'id');
+    }
 }

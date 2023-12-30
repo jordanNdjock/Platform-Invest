@@ -1,5 +1,11 @@
 @php
    $couleurs = [
+        'bg-dark',
+        'bg-primary',
+        'bg-info',
+        'bg-warning',
+        'bg-danger',
+        'bg-success',
         'bg-gradient-dark',
         'bg-gradient-primary',
         'bg-gradient-info',
@@ -96,7 +102,9 @@
         <div class="col-12">
           <div class="row">
             <div class="col-xl-12">
+              <form action=""  method="post">
               <div class="row py-3">
+                
                 @foreach ($bots as $bot => $donnees)
 
                         <div class="col-md-3 mx-auto mb-3">
@@ -113,7 +121,15 @@
                                 <hr class="horizontal dark my-3">
                                 <span class="text-xs">{{ __("Montant fourni par jour") }}</span>
                                 <h5 class="mb-3 mt-2">{{ $donnees->montant_fourni }} XAF</h5>
-                                <button type="submit" class="btn btn-lg mx-auto {{ $couleurs[count($bots)-$i] }}">{{ __("Miner") }} <i class="fas fa-hammer text-sm"></i></button><!--<i class="fas fa-cart-shopping text-sm"></i> -->
+                                @php
+                                    $userPayment = $userBotPayments->firstWhere('mining_bots_id', $donnees->id);
+                                @endphp
+
+                                @if ($userPayment && $userPayment->bot_payé === 'oui')
+                                    <button type="button" class="btn btn-lg mx-auto {{ $couleurs[count($bots)-$i] }} text-white">{{ __("Miner") }} <i class="fas fa-hammer text-sm"></i></button>
+                                @else
+                                    <button type="button" class="btn btn-lg mx-auto {{ $couleurs[count($bots)-$i] }} text-white">{{ __("Acheter") }} <i class="fas fa-cart-shopping text-sm"></i></button>
+                                @endif
                             </div>
                             </div>
                         </div>
@@ -121,7 +137,7 @@
                     $i++;
                   @endphp
                 @endforeach
-                
+              </form>
               </div>
             </div>
             

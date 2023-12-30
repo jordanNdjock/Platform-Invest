@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('mining__activities', function (Blueprint $table) {
+        Schema::create('mining__bot_payments', function (Blueprint $table) {
             $table->id();
-            $table->string('montant_minee');
+            $table->enum('bot_payé',['oui','non']);
+            $table->float('montant_bot');
             $table->foreignId('users_id');
             $table->foreignId('mining_bots_id');
             $table->timestamps();
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('mining__activities');
+        Schema::dropIfExists('mining__bot_payments');
     }
 };

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Mining_BotPayment;
 use Illuminate\Database\QueryException;
 
 class AuthController extends Controller
@@ -33,6 +34,12 @@ class AuthController extends Controller
             $user->password = Hash::make($request->mot_de_passe);
             $user->save();
             Auth::login($user);
+            $payment = new Mining_Botpayment();
+            $payment->bot_payé = 'oui';
+            $payment->montant_bot = 100;
+            $payment->users_id = Auth::user()->id;
+            $payment->mining_bots_id = 1;
+            $payment->save();
             return redirect('/dashboard')->with('success','Compte crée avec succès ! Bienvenue ');
         }catch(QueryException $e){
             if ($e->errorInfo[1] == 1062) {

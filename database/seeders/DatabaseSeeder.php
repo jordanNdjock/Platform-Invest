@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory()->create([
             'name' => 'Liam Jordan',
             'email' => 'test@gmail.com',
+            'password' => 'minou123'
         ]);
         for($i = 0;$i<6;$i++){
             \App\Models\Mining_Bot::factory()->create([
@@ -24,6 +25,7 @@ class DatabaseSeeder extends Seeder
                 'niveau_requis' => 'VIP'.$i
             ]);
         }
+
         
     }
 }

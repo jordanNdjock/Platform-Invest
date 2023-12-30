@@ -98,7 +98,7 @@
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold">{{__("Actifs du jour")}}</p>
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">{{__("Total des Actifs")}}</p>
                     <h5 class="font-weight-bolder mb-4 mt-2">
                       {{ ($user->solde == 0) ? '0.0' : $user->solde}} XAF
                     </h5>
