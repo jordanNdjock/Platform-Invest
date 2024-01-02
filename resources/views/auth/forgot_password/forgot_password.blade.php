@@ -6,7 +6,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <title>
-     Link Platform/{{ __("Se connecter") }}
+     Link Platform/{{ __("Mot de passe oublié") }}
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -21,6 +21,9 @@
 </head>
 
 <body class="">
+    <div class="position-absolute w-100 h-100 top-0" style="background-image: url('https://cdn.pixabay.com/photo/2018/05/04/15/27/cabin-3374201_1280.jpg'); background-position-y: 50%; background-size: cover;">
+        <span class="mask bg-primary opacity-6"></span>
+      </div>
   <div class="container position-sticky z-index-sticky top-0">
     <div class="row">
       <div class="col-12">
@@ -52,7 +55,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link me-2 active" href="#">
+                  <a class="nav-link me-2 active" href="{{ route('login') }}">
                     <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
                     {{ __("Se connecter") }}
                   </a>
@@ -84,49 +87,48 @@
       <div class="page-header min-vh-100">
         <div class="container">
           <div class="row">
-            <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">
-              <div class="card card-plain">
-                <div class="card-header pb-0 text-start">
-                  <h4 class="font-weight-bolder">{{ __("Se connecter") }}</h4>
-                  <p class="mb-0">{{ __("Entrer votre email et votre mot de passe pour vous connecter") }}</</p>
-                </div>
-                <div class="card-body">
-                  <form role="form" action="{{ route('login') }}" method="POST">
-                  @csrf
-                    @if (Session::has('error'))
-                        <div class="alert alert-danger alert-dismissible fade show text-white fw-bold" role="alert">
-                            {{ __(Session::get('error')) }}
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="fas fa-times-circle"></i></button>
-                        </div>
+            <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
+                    @if (Session::has('email'))
+                        <div class="card ">
+                            <div class="card-header pb-0 text-center">
+                              <h4 class="font-weight-bolder">{{ __("Mot de passe oublié") }}</h4>
+                              <p class="mb-0">{{ __("Entrer votre email pour pouvoir reinitialiser votre mot de passe") }}</</p>
+                            </div>
+                            <div class="card-body bg-white">
+                              <form role="form" action="{{ route('forgot') }}" method="POST">
+                              @csrf
+                                @if (Session::has('error'))
+                                    <div class="alert alert-danger alert-dismissible fade show text-white fw-bold" role="alert">
+                                        {{ __(Session::get('error')) }}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="fas fa-times-circle"></i></button>
+                                    </div>
+                                @endif
+
+                                @if (Session::has('success'))
+                                    <div class="alert alert-success alert-dismissible fade show text-white fw-bold" role="alert">
+                                        {{ __(Session::get('success')) }}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="fas fa-times-circle"></i></button>
+                                    </div>
+                                    <div class="mb-3">
+                                        <input type="text" class="form-control form-control-lg" name="token" placeholder="code" aria-label="token" value="{{old('token')}}" required>
+                                    </div>
+                                @else
+                                    <div class="mb-3">
+                                        <input type="email" class="form-control form-control-lg" name="email" placeholder="Email" aria-label="Email" value="{{old('email')}}" required>
+                                    </div>
+                                @endif
+                                   
+                                    <div class="text-center">
+                                    <button type="submit" class="btn btn-lg btn-secondary btn-lg w-100 mt-4 mb-0">{{ __("Envoyer") }} <i class="fas fa-paper-plane text-sm"></i></button>
+                                    </div>
+                              </form>
+                            </div>
+                            <div class="card-footer text-center pt-0 px-lg-2 px-1"></div>
+                          </div>
+                            
+                    @else
+                            
                     @endif
-                        <div class="mb-3">
-                        <input type="email" class="form-control form-control-lg" name="email" placeholder="Email" aria-label="Email" value="{{old('email')}}" required>
-                        </div>
-                        <div class="mb-3">
-                        <input type="password" class="form-control form-control-lg" name="password" placeholder="{{ __("Mot de passe") }}" value="{{old('password')}}" aria-label="{{ __("Mot de passe") }}" required>
-                        </div>
-                        
-                        <div class="text-center">
-                        <button type="submit" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">{{ __("Se connecter") }}</button>
-                        </div>
-                  </form>
-                </div>
-                <div class="card-footer text-center pt-0 px-lg-2 px-1">
-                  <p class="mb-4 text-sm mx-auto">
-                    {{__("Vous n'avez pas de compte?")}}
-                    <a href="{{ route('register') }}" class="text-primary text-gradient font-weight-bold">{{ __("S'inscrire") }}</a><br>
-                    <a href="{{ route('forgot') }}" class="text-primary font-weight-bold mt-2">{{ __("Mot de passe oublié") }} ?</a>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
-              <div class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden" style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signin-ill.jpg');
-                background-size: cover;">
-                <span class="mask bg-gradient-primary opacity-6"></span>
-                <h4 class="mt-5 text-white font-weight-bolder position-relative">"{{ __("La monnaie c'est l'invention de l'anonymat") }}"</h4>
-                <p class="text-white fw-bold position-relative">{{ __("Les investissements d'aujourd'hui sont les profits de demain et les emplois d'après-demain.")}}</p>
-              </div>
             </div>
           </div>
         </div>

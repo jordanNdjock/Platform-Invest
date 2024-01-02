@@ -1,5 +1,5 @@
 {
-    "Platform": "PLatform",
+    "Platform": "PLatform Link",
     "Accueil": "Home",
     "S'inscrire": "Sign up",
     "Se connecter": "Sign in",
@@ -59,6 +59,9 @@
     "Montant fourni par jour": "Amount provided per day",
     "Acheter": "Buy",
     "Strategie de minage": "Mining strategy",
+    "Mot de passe oublié": "Forgot password",
+    "Entrer votre email pour pouvoir reinitialiser votre mot de passe": "Enter your email to be able to reset your password",
+    "Envoyer": "Send",
 
 
     "Le mot de passe ne doit pas avoir moins de 6 caractères": "The password must not be less than 6 characters",
@@ -72,6 +75,9 @@
     "Veuillez modifier votre numero de CNI avec un numero correct.": "Please change your NIC number with a correct number.",
     "Votre nom ne peut être vide veuillez modifier avec un nom correct et non vide." : "Your name cannot be empty, please modify it with a correct, non-empty name.",
     "Le code d'invitation est invalide ! Vous pouvez laissez le champ vide ou saisir un code valide": "The invite code is invalid ! You can leave it empty or fill a valid invite code",
+    "Aucun utilisateur avec cet email.": "No users with this email.",
+    "Un mail de réinitialisation de mot de passe a été envoyé. Veuillez entrer le code que vous avez reçu": "A password reset email has been sent. Please enter the code you received",
+    "Lien de réinitialisation invalide ou expiré.": "Invalid or expired reset link.",
 
     "Mine 90 XAF par jour sur 12 jours" : "Mine 90 XAF per day over 12 days",
     "Mine 171.85 XAF par jour sur 1 an": "Mine 171.85 XAF per day over 1 year",

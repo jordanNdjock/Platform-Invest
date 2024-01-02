@@ -23,7 +23,7 @@
 </head>
 
 <body class="g-sidenav-show  bg-gray-100 ">
-    <div class="position-absolute w-100 min-height-300 top-0" style="background-image: url('https://cdn.pixabay.com/photo/2022/09/26/20/42/villa-7481540_1280.jpg'); background-position-y: 50%;">
+    <div class="position-absolute w-100 min-height-300 top-0" style="background-image: url('https://cdn.pixabay.com/photo/2022/09/26/20/42/villa-7481540_1280.jpg'); background-position-y: 50%; ">
         <span class="mask bg-primary opacity-6"></span>
     </div>
   <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 " id="sidenav-main">

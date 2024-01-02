@@ -180,7 +180,7 @@
                         <label for="example-text-input" class="form-control-label">{{ __("Code d'invitation") }}</label>
                         <div class="input-group">
                           <input class="form-control" type="text" id="link" value="{{ $user->code_invitation }}" readonly style="width: 10px;"> 
-                          <span class="btn btn-secondary mt-4 input-group-text btn-copy" id="buttonCopy"> {{ __("Copier") }} <i class="fas fa-clipboard"></i></span>
+                          <span class="btn btn-secondary mt-4 input-group-text btn-copy" id="buttonCopy"> {{ __("Copier") }} <i class="fas fa-clone"></i></span>
                         </div>
                       </div>
                     </div>
