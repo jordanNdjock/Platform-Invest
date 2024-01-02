@@ -24,7 +24,7 @@ class User extends Authenticatable
         'password',
         'statut',
         'solde',
-        'lien_invitation'
+        'code_invitation'
     ];
 
     /**

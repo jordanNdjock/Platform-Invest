@@ -177,9 +177,9 @@
                     </div>
                     <div class="col-md-4">
                       <div class="form-group">
-                        <label for="example-text-input" class="form-control-label">{{ __("Lien d'invitation") }}</label>
+                        <label for="example-text-input" class="form-control-label">{{ __("Code d'invitation") }}</label>
                         <div class="input-group">
-                          <input class="form-control" type="text" id="link" value="{{ $user->lien_invitation }}" readonly style="width: 10px;"> 
+                          <input class="form-control" type="text" id="link" value="{{ $user->code_invitation }}" readonly style="width: 10px;"> 
                           <span class="btn btn-secondary mt-4 input-group-text btn-copy" id="buttonCopy"> {{ __("Copier") }} <i class="fas fa-clipboard"></i></span>
                         </div>
                       </div>
