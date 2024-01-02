@@ -15,11 +15,16 @@ class AuthController extends Controller
         return view('auth.register');
     }
     public function registerPost(Request $request){
-
+        //pour la génération du lien d'invivitation
+        $informations = $request->email . $request->mot_de_passe;
+        $HashKey = hash('sha256', $informations);
+        $invitation_link = substr($HashKey, 0, 10);
+        
         $user = new User();
         $user->name = $request->nom;
         $user->email = $request->email;
         $user->cni = $request->num_cni;
+        $user->lien_invitation = $invitation_link;
         if(strlen($request->mot_de_passe) < 6 ){
             return back()
             ->withInput($request->except('mot_de_passe'))
@@ -30,16 +35,32 @@ class AuthController extends Controller
             ->withInput()
             ->with('error', "Le numéro de CNI doit avoir 17 caractères");
         }
+        //Attribution du gain par lien d'invitation
+        if(!empty($request->lien_invitation)){
+            $userFind = User::Where('lien_invitation',$request->lien_invitation)->first();
+            if($userFind){
+                $userFind->solde += 150;
+                $userFind->save();
+            }else{
+                return back()
+                ->WithInput($request->except('lien_invitation'))
+                ->With('error', 'Le lien d\'invitation est invalide ! Vous pouvez laissez le champ vide ou saisir un lien valide');
+            }
+        }
+       
         try{
             $user->password = Hash::make($request->mot_de_passe);
             $user->save();
             Auth::login($user);
+
+            //Achat du bot VIP0
             $payment = new Mining_Botpayment();
             $payment->bot_payé = 'oui';
             $payment->montant_bot = 100;
             $payment->users_id = Auth::user()->id;
             $payment->mining_bots_id = 1;
             $payment->save();
+
             return redirect('/dashboard')->with('success','Compte crée avec succès ! Bienvenue ');
         }catch(QueryException $e){
             if ($e->errorInfo[1] == 1062) {

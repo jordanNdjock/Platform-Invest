@@ -12,8 +12,11 @@
     "Nom": "Name",
     "Mot de passe": "Password",
     "N° CNI": "NIC",
+    "Lien d'invitation (si vous avez un lien d'invitation)": "Invite link (if you have an invite link)",
     "J'accepte les":  "I agree the",
     "Termes et conditions": "Terms and conditions",
+    "Lien d'invitation": "Invitation link",
+    "Copier": "Copy",
     "Avez-vous déjà un compte?": "Already have an account?",
     "Tout droits reservés": "Copyright",
     "Par": "By",
@@ -55,6 +58,7 @@
     "Coût d'achat du robot de minage": "Cost of purchasing the mining robot",
     "Montant fourni par jour": "Amount provided per day",
     "Acheter": "Buy",
+    "Strategie de minage": "Mining strategy",
 
 
     "Le mot de passe ne doit pas avoir moins de 6 caractères": "The password must not be less than 6 characters",
@@ -65,6 +69,18 @@
     "Cet utilisateur n'existe pas.": "This user does not exist.",
     "Le mot de passe est incorrect." : "The password is incorrect.",
     "Informations modifiées avec succès !": "Information successfully modified !",
-    "Veuillez modifier votre numero de CNI avec un numero correct.": "Please change your NIC number with a correct number."
+    "Veuillez modifier votre numero de CNI avec un numero correct.": "Please change your NIC number with a correct number.",
+    "Votre nom ne peut être vide veuillez modifier avec un nom correct et non vide." : "Your name cannot be empty, please modify it with a correct, non-empty name.",
+    "Le lien d'invitation est invalide ! Vous pouvez laissez le champ vide ou saisir un lien valide": "The invite link is invalid ! You can leave it empty or fill a valid invite link",
+
+    "Mine 90 XAF par jour sur 12 jours" : "Mine 90 XAF per day over 12 days",
+    "Mine 171.85 XAF par jour sur 1 an": "Mine 171.85 XAF per day over 1 year",
+    "Mine 546.875 XAF par jour sur 1 an": "Mine 546.875 XAF per day over 1 year",
+    "Mine 1140.625 XAF par jour sur 1 an": "Mine 1140.625 XAF per day over 1 year",
+    "Mine 2450 XAF par jour sur 1 an": "Mine 2450 XAF per day over 1 year",
+    "Mine 5344.82 XAF par jour sur 1 an": "Mine 5344.82 XAF per day over 1 year",
+    "Mine 12068.97 XAF par jour sur 1 an": "Mine 12068.97 XAF per day over 1 year",
+    "Mine 25925.93 XAF par jour sur 1 an": "Mine 25925.93 XAF per day over 1 year",
+    "Mine 40384.62 XAF par jour sur 1 an": "Mine 40384.62 XAF per day over 1 year"
 
 }

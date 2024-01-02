@@ -163,16 +163,25 @@
                         <input class="form-control" value="{{$user->email}}"  readonly >
                       </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                       <div class="form-group">
                         <label for="example-text-input" class="form-control-label">{{ __("N° CNI") }}</label>
                         <input class="form-control" type="text" value="{{$user->cni}}" name="cni">
                       </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                       <div class="form-group">
                         <label for="example-text-input" class="form-control-label">{{ __("Mot de passe") }}</label>
                         <input class="form-control" type="password" placeholder="********" name="password">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="example-text-input" class="form-control-label">{{ __("Lien d'invitation") }}</label>
+                        <div class="input-group">
+                          <input class="form-control" type="text" id="link" value="{{ $user->lien_invitation }}" readonly style="width: 10px;"> 
+                          <span class="btn btn-secondary mt-4 input-group-text btn-copy" id="buttonCopy"> {{ __("Copier") }} <i class="fas fa-clipboard"></i></span>
+                        </div>
                       </div>
                     </div>
                     <hr>
@@ -214,6 +223,15 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/argon-dashboard.min.js?v=2.0.4"></script>
+  <script type="text/javaScript">
+       var button = document.getElementById("buttonCopy");
+       button.addEventListener('click', () => {
+            var text = document.getElementById("link").value;
+            navigator.clipboard.writeText(text);
+            button.innerText = "Ok !";
+      });
+      
+  </script>
 </body>
 
 </html>

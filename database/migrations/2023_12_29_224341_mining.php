@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('mining__activities', function (Blueprint $table) {
             $table->id();
-            $table->string('montant_minee');
+            $table->float('montant_minee',12,2);
             $table->foreignId('users_id');
             $table->foreignId('mining_bots_id');
             $table->timestamps();

@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('mining__bot_payments', function (Blueprint $table) {
             $table->id();
-            $table->enum('bot_payé',['oui','non']);
-            $table->float('montant_bot');
+            $table->enum('bot_payé',['oui','non'])->default('non');
+            $table->float('montant_bot',12);
             $table->foreignId('users_id');
             $table->foreignId('mining_bots_id');
             $table->timestamps();

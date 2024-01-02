@@ -14,7 +14,8 @@ class Mining_Bot extends Model
       'strategie_minage',
       'niveau_requis',
       'cout',
-      'montant_fourni'
+      'montant_fourni',
+      'durée_minage'
     ];
 
   

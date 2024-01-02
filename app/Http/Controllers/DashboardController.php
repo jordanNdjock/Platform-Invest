@@ -32,6 +32,9 @@ class DashboardController extends Controller
         }else{
             $password = Hash::make($request->password);
         }
+        if(empty($request->nom)){
+            return redirect()->back()->With('error','Votre nom ne peut être vide veuillez modifier avec un nom correct et non vide.');
+        }
         if(strlen($request->cni) != 17){
             return redirect()->back()->With('error','Veuillez modifier votre numero de CNI avec un numero correct.');
         }

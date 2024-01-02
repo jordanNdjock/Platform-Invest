@@ -23,7 +23,8 @@ class User extends Authenticatable
         'cni',
         'password',
         'statut',
-        'solde'
+        'solde',
+        'lien_invitation'
     ];
 
     /**

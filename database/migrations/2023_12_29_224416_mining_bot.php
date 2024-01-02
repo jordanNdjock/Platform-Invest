@@ -16,8 +16,9 @@ return new class extends Migration
             $table->string('nom');
             $table->string('strategie');
             $table->string('niveau_requis');
-            $table->float('cout');
-            $table->float('montant_fourni');
+            $table->float('cout',12);
+            $table->float('montant_fourni',12,2);
+            $table->string('durée_minage');
             $table->timestamps();
         });
     }

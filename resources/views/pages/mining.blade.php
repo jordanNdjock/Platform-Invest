@@ -1,12 +1,12 @@
 @php
    $couleurs = [
-        'bg-dark',
+        'bg-gradient-dark',
         'bg-primary',
         'bg-info',
-        'bg-warning',
-        'bg-danger',
+        // 'bg-warning',
+        // 'bg-danger',
+        //'bg-dark'
         'bg-success',
-        'bg-gradient-dark',
         'bg-gradient-primary',
         'bg-gradient-info',
         'bg-gradient-warning',
@@ -101,6 +101,18 @@
       <div class="row">
         <div class="col-12">
           <div class="row">
+                @if (Session::has('success'))
+                    <div class="alert alert-success alert-dismissible fade show text-white" role="alert">
+                          {{ __(Session::get('success'))}}
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="fas fa-times-circle"></i></button>
+                    </div>
+                @endif
+                @if(Session::has('error'))
+                    <div class="alert alert-danger alert-dismissible fade show text-white" role="alert">
+                      {{ __(Session::get('error'))}}
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="fas fa-times-circle"></i></button>
+                    </div>
+                @endif
             <div class="col-xl-12">
               <form action=""  method="post">
               <div class="row py-3">
@@ -117,10 +129,13 @@
                             <div class="card-body pt-0 p-3 text-center">
                                 <h6 class="text-center mb-0">{{ $donnees->nom }}</h6>
                                 <span class="text-xs">{{ __("Coût d'achat du robot de minage") }}</span>
-                                <h5 class="mb-3 mt-2">{{ $donnees->cout }} XAF</h5>
+                                <h6 class="mb-3 mt-2">{{ $donnees->cout }} XAF</h5>
                                 <hr class="horizontal dark my-3">
                                 <span class="text-xs">{{ __("Montant fourni par jour") }}</span>
-                                <h5 class="mb-3 mt-2">{{ $donnees->montant_fourni }} XAF</h5>
+                                <h6 class="mb-3 mt-2">{{ $donnees->montant_fourni }} XAF</h5>
+                                <hr class="horizontal dark my-3">
+                                <span class="text-xs">{{ __("Strategie de minage") }}</span>
+                                <h6 class="mb-3 mt-2 text-center px-3">{{ __($donnees->strategie) }}</h5>
                                 @php
                                     $userPayment = $userBotPayments->firstWhere('mining_bots_id', $donnees->id);
                                 @endphp
