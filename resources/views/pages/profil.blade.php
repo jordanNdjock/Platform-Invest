@@ -153,31 +153,31 @@
                     
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="example-text-input" class="form-control-label">{{ __("Nom") }}</label>
+                        <label class="form-control-label">{{ __("Nom") }}</label>
                         <input class="form-control" type="text" value="{{$user->name}}" name="nom">
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="example-text-input" class="form-control-label">Email</label>
+                        <label  class="form-control-label">Email</label>
                         <input class="form-control" value="{{$user->email}}"  readonly >
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group">
-                        <label for="example-text-input" class="form-control-label">{{ __("N° CNI") }}</label>
+                        <label class="form-control-label">{{ __("N° CNI") }}</label>
                         <input class="form-control" type="text" value="{{$user->cni}}" name="cni">
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group">
-                        <label for="example-text-input" class="form-control-label">{{ __("Mot de passe") }}</label>
+                        <label  class="form-control-label">{{ __("Mot de passe") }}</label>
                         <input class="form-control" type="password" placeholder="********" name="password">
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group">
-                        <label for="example-text-input" class="form-control-label">{{ __("Code d'invitation") }}</label>
+                        <label  class="form-control-label">{{ __("Code d'invitation (vous gagner 25 XAF par compte crée avec votre code)") }}</label>
                         <div class="input-group">
                           <input class="form-control" type="text" id="link" value="{{ $user->code_invitation }}" readonly style="width: 10px;"> 
                           <span class="btn btn-secondary mt-4 input-group-text btn-copy" id="buttonCopy"> {{ __("Copier") }} <i class="fas fa-clone"></i></span>

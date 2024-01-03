@@ -115,11 +115,11 @@
                   <input type="password" class="form-control" name="mot_de_passe"  placeholder="{{ __("Mot de passe") }}" aria-label="{{ __("Mot de passe") }}" value="{{old('mot_de_passe')}}" required>
                 </div>
                 <div class="mb-3">
-                  <input type="text" class="form-control" name="code_invitation"  placeholder="{{ __("Code d'invitation (si vous créez avec un Code d'invitation)") }}" aria-label="{{ __("Code d'invitation") }}" value="{{old('code_invitation')}}">
+                  <input type="text" class="form-control" name="code_invitation"  placeholder="{{ __("Code d'invitation (si vous créez avec un Code d'invitation)") }}" value="{{old('code_invitation')}}">
                 </div>
                 <div class="form-check form-check-info text-start">
                   <input class="form-check-input" type="checkbox" id="flexCheckDefault" required>
-                  <label class="form-check-label" for="flexCheckDefault">
+                  <label class="form-check-label" >
                     {{ __("J'accepte les") }} <a href="#" class="text-dark font-weight-bolder"> {{ __("Termes et conditions") }}</a>
                   </label>
                 </div>

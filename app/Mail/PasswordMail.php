@@ -27,7 +27,7 @@ class PasswordMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Link Reset Password',
+            subject: 'Password Mail',
         );
     }
 
@@ -37,7 +37,7 @@ class PasswordMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'auth.forgot_password.mail_content',
+            markdown: 'mail.password-mail',
         );
     }
 

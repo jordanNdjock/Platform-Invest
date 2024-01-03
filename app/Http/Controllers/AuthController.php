@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use App\Models\Mining_BotPayment;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Str;
@@ -115,12 +116,12 @@ class AuthController extends Controller
 
             $contenu = [
                 'title' => 'Code de reinitialisation de mot de passe sur Link Platform',
-                'body' => ' Voici votre code de reinitialisation de mot de passe Link : '.$jeton.', ne le donner à personne, copiez et collez le sur la plateforme !'
+                'body' => '<br>Voici votre code de reinitialisation de mot de passe Link : <br> <h1 style="font-size:25px;text-align:center;">'.$jeton.'</h1> ne le donner à personne, copiez et collez le sur la plateforme !'
             ];
             $utilisateur->update([
                 'remember_token' => $jeton
             ]);
-            \Mail::to($utilisateur->email)->send(new PasswordMail($contenu));
+            Mail::to($utilisateur->email)->send(new PasswordMail($contenu));
             
             session(['jeton_reset_password' => $jeton, 'jeton_reset_password_expiration' => now()->addHour()]);
         
