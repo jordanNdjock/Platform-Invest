@@ -4,8 +4,8 @@
     <title>Platform Link </title>
 </head>
 <body>
-    <h1> {{ __($contenu['title']) }} </h1>
-    <p> {{ __($contenu['body']) }} </p>
+    <h1> {{ $contenu['title'] }} </h1>
+    <p> {{ $contenu['body'] }} </p>
 
     <p> Merci !</p>
 

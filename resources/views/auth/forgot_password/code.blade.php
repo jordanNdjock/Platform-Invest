@@ -6,7 +6,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <title>
-     Link Platform/{{ __("Mot de passe oublié") }}
+     Link Platform/{{ __("Mot de passe oublié") }}/code
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -21,7 +21,7 @@
 </head>
 
 <body class="">
-    <div class="position-absolute w-100 h-100 top-0" style="background-image: url('https://cdn.pixabay.com/photo/2018/05/04/15/27/cabin-3374201_1280.jpg'); background-position-y: 50%; background-size: cover;">
+    <div class="position-absolute w-100 h-100 top-0" style="background-image: url('https://cdn.pixabay.com/photo/2015/05/18/13/31/cape-town-772248_1280.jpg'); background-position-y: 50%; background-size: cover;">
         <span class="mask bg-primary opacity-6"></span>
       </div>
   <div class="container position-sticky z-index-sticky top-0">
@@ -88,14 +88,12 @@
         <div class="container">
           <div class="row">
             <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
-                 
                         <div class="card ">
                             <div class="card-header pb-0 text-center">
-                              <h4 class="font-weight-bolder">{{ __("Mot de passe oublié") }}</h4>
-                              <p class="mb-0">{{ __("Entrer votre email pour pouvoir reinitialiser votre mot de passe") }}</</p>
+                              <h4 class="font-weight-bolder">{{ __("Code de reinitialisation") }}</h4>
                             </div>
                             <div class="card-body bg-white">
-                              <form role="form" action="{{ route('forgot') }}" method="POST">
+                              <form role="form" action="{{ route('code') }}" method="POST">
                               @csrf
                                 @if (Session::has('error'))
                                     <div class="alert alert-danger alert-dismissible fade show text-white fw-bold" role="alert">
@@ -104,10 +102,15 @@
                                     </div>
                                 @endif
 
-                                    <div class="mb-3">
-                                        <input type="email" class="form-control form-control-lg" name="email" placeholder="Email" aria-label="Email" value="{{old('email')}}" required>
+                                @if (Session::has('success'))
+                                    <div class="alert alert-success alert-dismissible fade show text-white fw-bold" role="alert">
+                                        {{ __(Session::get('success')) }}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="fas fa-times-circle"></i></button>
                                     </div>
-                               
+                                @endif
+                                <div class="mb-3">
+                                    <input type="text" class="form-control form-control-lg" name="token" placeholder="code" aria-label="token" value="{{old('token')}}" required>
+                                </div>
                                    
                                     <div class="text-center">
                                     <button type="submit" class="btn btn-lg btn-secondary btn-lg w-100 mt-4 mb-0">{{ __("Envoyer") }} <i class="fas fa-paper-plane text-sm"></i></button>
@@ -116,7 +119,6 @@
                             </div>
                             <div class="card-footer text-center pt-0 px-lg-2 px-1"></div>
                           </div>
-                            
             </div>
           </div>
         </div>

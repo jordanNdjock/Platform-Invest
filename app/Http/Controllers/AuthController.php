@@ -60,7 +60,7 @@ class AuthController extends Controller
             //Achat du bot VIP0
             $payment = new Mining_Botpayment();
             $payment->bot_payé = 'oui';
-            $payment->montant_bot = 100;
+            $payment->montant_bot = 0;
             $payment->users_id = Auth::user()->id;
             $payment->mining_bots_id = 1;
             $payment->save();
@@ -73,12 +73,13 @@ class AuthController extends Controller
                     ->with('error', 'Un compte avec cet email existe déjà !');
             }
         }
-        
 
     }
+
     public function login(){
         return view('auth.login');
     }
+
     public function loginPost(Request $request){
         $credentials = [ 
             'email' => $request->email,
@@ -100,27 +101,11 @@ class AuthController extends Controller
     }
 
     public function forgot(){
-        Session::flash('email');
         return view('auth.forgot_password.forgot_password');
     }
 
     public function forgotPost(Request $request){
         
-        if(!empty($request->token)){
-            if ($request->session()->has('jeton_reset_password') && $request->token == $request->session()->has('jeton_reset_password') &&
-            $request->session()->has('jeton_reset_password_expiration') &&
-            now() < $request->session()->get('jeton_reset_password_expiration')) {
-
-            $request->session()->forget(['jeton_reset_password', 'jeton_reset_password_expiration']);
-    
-            return view('auth.forgot_password.reinitialized_password');
-            
-            }else{
-                Session::flash('email');
-                // dd('yo');
-                return back()->with('error', 'Lien de réinitialisation invalide ou expiré.');
-            }
-        }else{
             $utilisateur = User::where('email', $request->email)->first();
 
             if (!$utilisateur) {
@@ -130,16 +115,67 @@ class AuthController extends Controller
 
             $contenu = [
                 'title' => 'Code de reinitialisation de mot de passe sur Link Platform',
-                'body' => ' Voici votre code de reinitialisation de mot de passe Link : '.$jeton.', ne le donner à personne et collez le sur la plateforme !'
+                'body' => ' Voici votre code de reinitialisation de mot de passe Link : '.$jeton.', ne le donner à personne, copiez et collez le sur la plateforme !'
             ];
-        
+            $utilisateur->update([
+                'remember_token' => $jeton
+            ]);
             \Mail::to($utilisateur->email)->send(new PasswordMail($contenu));
-    
+            
             session(['jeton_reset_password' => $jeton, 'jeton_reset_password_expiration' => now()->addHour()]);
         
-            return back()->with('success', 'Un mail de réinitialisation de mot de passe a été envoyé. Veuillez entrer le code que vous avez reçu');
-        }
+            return redirect('/code')->with('success', 'Un mail de réinitialisation de mot de passe a été envoyé. Veuillez entrer le code que vous avez reçu');
        
+    }
+
+    public function code(){
+        return view('auth.forgot_password.code');
+    }
+
+    public function codePost(Request $request){
+        
+            if (($request->session()->has('jeton_reset_password') && $request->token == $request->session()->get('jeton_reset_password')) &&
+            ($request->session()->has('jeton_reset_password_expiration') &&
+            now() < $request->session()->get('jeton_reset_password_expiration'))) {
+            $request->session()->forget(['jeton_reset_password', 'jeton_reset_password_expiration']);
+            session(['jeton_reset_password' => $request->token]);
+            return redirect('/reinitialized')->with('success', 'Code de reinitialisation valide, vous pouvez modifier votre mot de passe');
+            
+            }else{
+                return back()->with('error', 'Code de réinitialisation invalide ou expiré.');
+            }
+       
+    }
+
+    public function reinitialized(){
+        return view('auth.forgot_password.reinitialized_password');
+    }
+
+    public function reinitializedPost(Request $request){
+        
+        if ($request->session()->has('jeton_reset_password')) {
+            $user = User::where('remember_token',($request->session()->get('jeton_reset_password')));
+            if($user){
+                if(strlen($request->password) < 6 || strlen($request->passwordC) < 6){
+                    return back()->with('error', 'Le mot de passe ne doit pas avoir moins de 6 caractères');
+                }else{
+                    if($request->password == $request->passwordC){
+                        $user->update([
+                            'password' => Hash::make($request->password),
+                            'remember_token' => null
+                        ]);
+                        return redirect('/login')->with('success', 'Mot de passe modifié avec succès, vous pouvez vous connecter.');
+                    }else{
+                        return back()->with('error','Les mots de passe ne sont pas identiques');
+                    }
+                }
+                
+            }
+            
+        }else{
+            return back()->with('error', 'Code de réinitialisation invalide ou expiré.');
+        }
+   
     }
 
     public function logout(){

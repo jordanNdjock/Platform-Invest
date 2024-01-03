@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('statut')->default('VIP0')->nullable();
             $table->float('solde',12,2)->default(0.0)->nullable();
             $table->string('code_invitation');
+            $table->string('remember_token')->nullable();
             $table->timestamps();
         });
     }

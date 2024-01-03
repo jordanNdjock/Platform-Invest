@@ -99,6 +99,12 @@
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="fas fa-times-circle"></i></button>
                         </div>
                     @endif
+                    @if (Session::has('success'))
+                        <div class="alert alert-success alert-dismissible fade show text-white fw-bold" role="alert">
+                            {{ __(Session::get('success')) }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="fas fa-times-circle"></i></button>
+                        </div>
+                    @endif
                         <div class="mb-3">
                         <input type="email" class="form-control form-control-lg" name="email" placeholder="Email" aria-label="Email" value="{{old('email')}}" required>
                         </div>

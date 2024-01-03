@@ -28,6 +28,10 @@ Route::group(['middleware' => 'guest'], function(){
     Route::post('/login',[AuthController::class, 'loginPost'])->name('login');
     Route::get('/forgot_password',[AuthController::class, 'forgot'])->name('forgot');
     Route::post('/forgot_password',[AuthController::class, 'forgotPost'])->name('forgot');
+    Route::get('/code',[AuthController::class, 'code'])->name('code');
+    Route::post('/code',[AuthController::class, 'codePost'])->name('code');
+    Route::get('/reinitialized',[AuthController::class, 'reinitialized'])->name('modify');
+    Route::post('/reinitialized',[AuthController::class, 'reinitializedPost'])->name('modify');
 });
 
 Route::group(['middleware' => 'auth'], function(){
