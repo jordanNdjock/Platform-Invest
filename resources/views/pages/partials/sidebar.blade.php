@@ -1,6 +1,6 @@
 <style>
   #cog{
-    animation: rotation 2s infinite;
+    animation: rotation 2s linear infinite;
   }
   @keyframes rotation{
     50%{
